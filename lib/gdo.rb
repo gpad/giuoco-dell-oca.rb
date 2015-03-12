@@ -5,7 +5,11 @@ class Game
   end
 
   def execute command, parameter
+    if @players.include?(parameter)
+      return "#{parameter}: giocatore già presente"
+    end
+
     @players << parameter
-    "Giocatori: #{@players.join(', ')}" 
+    "Giocatori: #{@players.join(', ')}"
   end
 end

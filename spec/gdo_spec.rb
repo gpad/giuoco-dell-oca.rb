@@ -12,4 +12,11 @@ describe 'gioco dell\'oca' do
     response = game.execute('Aggiungi giocatore', 'Pluto')
     expect(response).to eq('Giocatori: Pippo, Pluto')
   end
+
+  it 'when add existing player the system notify faul' do
+    game = Game.new
+    game.execute('Aggiungi giocatore', 'Pippo')
+    response = game.execute('Aggiungi giocatore', 'Pippo')
+    expect(response).to eq('Pippo: giocatore già presente')
+  end
 end
