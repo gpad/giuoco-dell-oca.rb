@@ -20,6 +20,13 @@ describe 'gioco dell\'oca' do
     expect(response).to eq('Pippo: giocatore già presente')
   end
 
+
+  it 'Move player 2,2' do
+    game = Game.new
+    response = game.execute('Muovi', 'Pluto', '2', '2')
+    expect(response).to eq('Pluto tira 2, 2. Pluto muove da Partenza a 4')
+  end
+
   it 'Move player 4,2' do
     game = Game.new
     response = game.execute('Muovi', 'Pippo', '4', '2')
