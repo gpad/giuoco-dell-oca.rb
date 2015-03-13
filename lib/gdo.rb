@@ -5,18 +5,11 @@ class Game
   end
 
   def execute command, *args
-    #commands = {
-  #    'Aggiungi giocatore' => -> (x) { puts "jjj"; aggiungi_giocatore(x) },
-#      'Muovi' => -> (x) { puts "kdsajkdashlfsk" }
-#    }
-#    puts "-#{command}- #{commands[command]}"
-#    commands[command].call(*args)
-    if command == 'Aggiungi giocatore'
-      return aggiungi_giocatore *args
-    end
-    if command == 'Muovi'
-      return muovi *args
-    end
+    commands = {
+      'Aggiungi giocatore' => :aggiungi_giocatore ,
+      'Muovi' =>  :muovi
+    }
+    commands[command].to_proc.call(self, *args)
   end
 
   def aggiungi_giocatore *args
